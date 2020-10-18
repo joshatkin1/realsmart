@@ -93,9 +93,7 @@ class DeviceVerificationController extends Controller
                     9999999999
                 );
 
-                //$url = Redirect::intended()->getTargetUrl();
-
-                return response(view('/app'), 200 );
+                return Redirect::route('app');
             }
         }
 

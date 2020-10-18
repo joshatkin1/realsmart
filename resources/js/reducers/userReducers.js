@@ -1,17 +1,17 @@
 import {
-    NAVIGATE_APP,
+    FETCH_SESSION_DATA,
 } from '../actions/actionTypes.js';
 
 const initialState = {
-    appPage:"dashboard",
+    sessionData:{},
 }
 
 export default function(state = initialState, action){
     switch(action.type){
-        case 'NAVIGATE_APP':
+        case 'FETCH_SESSION_DATA':
             return {
                 ...state,
-                appPage : action.payload
+                sessionData : action.payload
             };
             break;
         default:

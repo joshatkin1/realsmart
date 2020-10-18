@@ -93,20 +93,20 @@ class AccountDeviceVerification extends Model
     }
 
     /**
-     * LIMITS VERIFICATION CODES TO 1 EVERY 10 MINS
+     * LIMITS VERIFICATION CODES TO 3 EVERY 1 MINUTE
      * @return bool
      */
     final public function limitVerificationCodes(){
 
-        $last_code = DB::table($this->table)
+        $time_limit = time() - 60;
+
+        $result = DB::table($this->table)
             ->where('user' , '=' , session('id'))
-            ->orderByDesc('created_time')
-            ->first();
+            ->where('created_time', '>', $time_limit)
+            ->get();
 
-        if($last_code){
-            $time_limit = time() - 600;
-
-            if($last_code->created_time > $time_limit){
+        if($result){
+            if(count($result) > 2){
                 return false;
             }
         }

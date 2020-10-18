@@ -124,7 +124,7 @@ textarea {
 
 /*POSITIONAL*/
 .content-wrap, .container, .container-fluid, .wrap-start, .wrap-end,.wrap-middle, .wrap-space-between , .content-stretch,
-.algn-btm,.algn-cntr, .content-fill, .content-section, .inr-content-section{
+.algn-btm,.algn-cntr, .content-fill, .content-section, .inr-content-section, .container-xl, .container-row{
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -136,11 +136,27 @@ textarea {
 .content-wrap{
     width:100%;
 }
-.wrap-start, .wrap-end,.wrap-middle, .wrap-space-between{
+.content-padding{
+    width:98%;
+    padding-left:1%;
+    padding-right:1%;
+}
+.pad-left-1{
+    padding-left:1%;
+}
+.pad-right-1{
+  padding-right:1%;
+}
+.wrap-start, .wrap-end,.wrap-middle, .wrap-space-between, .container-row{
     width:100%;
     -webkit-flex-direction:row;
     -ms-flex-direction:row;
     flex-direction:row;
+}
+.container-row{
+    width:98%;
+    padding-left:1%;
+    padding-right:1%;
 }
 .wrap-start{
     justify-content : flex-start;
@@ -176,10 +192,10 @@ textarea {
 .container-fluid,
 .container-sm,
 .container-md,
-.container-lg,
-.container-xl {
-    width: 99%;
-    padding:0.5%;
+.container-lg
+{
+    width: 98%;
+    padding:1%;
     margin-right: auto;
     margin-left: auto;
 }
@@ -194,7 +210,7 @@ textarea {
     padding:0;
 }
 .container-xl{
-    max-width: 1400px;
+    max-width: 1600px;
     width:100%;
 }
 .col-1 {
@@ -284,4 +300,25 @@ textarea {
 .input-fluid{
     width:calc(98% - 8px);
     padding:7px 4px;
+}
+.nav-bar{
+    width:100%;
+    height:28px;
+    background-color:rgb(241,241,245);
+    background: -o-linear-gradient(180deg, rgb(250,250,250), white, rgb(240,240,240));
+    background: -ms-linear-gradient(180deg, rgb(250,250,250), white, rgb(240,240,240));
+    background: -moz-linear-gradient(180deg, rgb(250,250,250), white, rgb(240,240,240));
+    background: linear-gradient(180deg, rgb(250,250,250), white, rgb(240,240,240));
+    background: -webkit-linear-gradient(270deg, rgb(250,250,250), white, rgb(240,240,240));
+    border-bottom: solid 0.5px lightgray;
+}
+.header-bar{
+    height:65px;
+    background-color:rgb(241,241,245);
+    background: -o-linear-gradient(180deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
+    background: -ms-linear-gradient(180deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
+    background: -moz-linear-gradient(180deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
+    background: linear-gradient(180deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
+    background: -webkit-linear-gradient(270deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
+    border-bottom: solid 0.5px lightgray;
 }

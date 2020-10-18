@@ -97,15 +97,11 @@ class LoginController extends Controller
         $this->clearLoginAttempts($request);
 
         //SET SESSION DATA
-        session(['id' => $this->loginUser->id , 'name' => $this->loginUser->name , 'email' => $this->loginUser->email , 'job_title' => $this->loginUser->job_title]);
+        session(['loggedIn' => true ,'id' => $this->loginUser->id , 'name' => $this->loginUser->name , 'email' => $this->loginUser->email , 'job_title' => $this->loginUser->job_title]);
 
         if($this->MFArequired === false){
             session(['device_auth' => true]);
-            $redir_url = Redirect::intended( )->getTargetUrl();
-            if(!isset($redir_url) || $redir_url == ""){
-                $redir_url = RouteServiceProvider::APP;
-            }
-            return redirect($redir_url);
+            return redirect('/app');
         }else if($this->MFArequired === true){
             session(['device_auth' => false]);
             $accountVerification = new AccountDeviceVerification();
