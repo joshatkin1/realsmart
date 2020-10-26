@@ -2,11 +2,10 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
-import {navigateAppPage} from '../actions/appActions.js';
-import {fetchSessionData} from '../actions/userActions.js';
+import {getNumberList} from '../actions/appActions.js';
+import DisplayNumbersList from '../components/DisplayNumbersList.js';
 
 //MAJOR CONTROLLER COMPONENTS
-import NavComponent from '../components/NavComponent.js';
 import HeaderComponent from '../components/HeaderComponent.js';
 
 class AppController extends Component{
@@ -20,44 +19,50 @@ class AppController extends Component{
 
     componentDidMount() {
         console.log('AppController componentDidMount');
-        this.props.fetchSessionData();
+
+        this.props.getNumberList();
+
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        var {appRequestStatusCode} = this.props;
 
-        return false;
+        return true;
     }
 
     render(){
         return (
                 <div className={"content-wrap algn-cntr"}>
-                    <div className={"content-wrap nav-bar algn-cntr"}>
-                        <div className={"container-xl"}>
-                            <NavComponent key={v4()} />
-                        </div>
-                    </div>
                     <div className={"header-bar content-wrap algn-cntr"}>
                         <div className={"container-xl"}>
                             <HeaderComponent key={v4()}/>
                         </div>
                     </div>
-
+                    <div className={"content-wrap algn-cntr"}>
+                        <div className={"container-xl wrap-middle"}>
+                            <div className={"num-list-sec"}>
+                                <p>Unused Numbers</p>
+                                <div className={"display-num-sec"}>
+                                    <DisplayNumbersList key={v4()} numberType={"unused"} />
+                                </div>
+                            </div>
+                            <div className={"num-list-sec"}>
+                                <p>Used Numbers</p>
+                                <div className={"display-num-sec"}>
+                                    <DisplayNumbersList key={v4()} numberType={"used"} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
         );
     }
 }
 
 AppController.propTypes = {
-    navigateAppPage: PropTypes.func.isRequired,
-    fetchSessionData: PropTypes.func.isRequired,
-    sessionData: PropTypes.object.isRequired,
-    appPage: PropTypes.string.isRequired,
+    getNumberList: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-    sessionData: state.user.sessionData,
-    appPage: state.app.appPage,
 });
 
-export default connect(mapStateToProps , {navigateAppPage, fetchSessionData})(AppController);
+export default connect(mapStateToProps , {getNumberList})(AppController);

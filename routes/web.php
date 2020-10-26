@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Route;
 Route::fallback(function () {return redirect('/home');});
 
 Route::get('/', function () {
-    return view('home');
+    return view('app');
 })->name('landingPage');
 
 Route::get('/home', function () {
-    return view('home');
+    return view('app');
 })->name('home');
 
 //GENERTIC AUTH ROUTES
@@ -33,4 +33,7 @@ Route::get('/resources/app/data/session/all', [App\Http\Controllers\UserControll
 
 
 //RESOURCES ROUTES
-Route::get('/test', [App\Http\Controllers\Controller::class, 'testFunction']);
+Route::get('/test', [App\Http\Controllers\IntegerController::class, 'getNumbers'])->name('test');
+
+Route::get('/resources/app/data/numbers/all', [App\Http\Controllers\IntegerController::class, 'getNumbers'])->name('numbers');
+Route::post('/resources/app/data/number/swap-usage', [App\Http\Controllers\IntegerController::class, 'swapIntegerUsage'])->name('swap-usage');

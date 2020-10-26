@@ -24,10 +24,10 @@ class HeaderComponent extends Component{
         return (
             <header className={"header-bar container-row wrap-middle algn-cntr"}>
                     <div className={"col-3 wrap-start algn-cntr"}>
-                        <p>logo</p>
+                        <p style={{fontFamily:"Product Sans"}}>realsmart</p>
                     </div>
                     <div className={"col-9 wrap-end algn-cntr"}>
-                        <p>notifications</p>
+
                     </div>
             </header>
         );
@@ -35,11 +35,9 @@ class HeaderComponent extends Component{
 }
 
 HeaderComponent.propTypes = {
-    sessionData: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
-    sessionData: state.user.sessionData,
 });
 
 export default connect(mapStateToProps , {})(HeaderComponent);

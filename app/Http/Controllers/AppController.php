@@ -15,8 +15,8 @@ class AppController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('userDeviceAuth');
+        //$this->middleware('auth');
+        //$this->middleware('userDeviceAuth');
     }
 
     /**

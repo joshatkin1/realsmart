@@ -8,7 +8,7 @@ import {
 import  {Provider} from 'react-redux';
 import store from './store.js';
 import { v4 } from 'uuid';
-import AppComponent from "./controllers/AppController";
+import AppController from "./controllers/AppController.js";
 
 //IMPORT PAGES BELOW
 
@@ -16,8 +16,17 @@ export default function SiteRouting() {
     return (
         <BrowserRouter>
             <Switch>
+
+                <Route exact path="/">
+                    <Provider store={store}><AppController/></Provider>
+                </Route>
+
+                <Route exact path="/home">
+                    <Provider store={store}><AppController/></Provider>
+                </Route>
+
                 <Route exact path="/app">
-                    <Provider store={store}><AppComponent/></Provider>
+                    <Provider store={store}><AppController/></Provider>
                 </Route>
             </Switch>
         </BrowserRouter>

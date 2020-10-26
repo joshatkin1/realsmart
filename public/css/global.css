@@ -14,7 +14,7 @@ body{
     color: rgb(30,30,30);
     text-align: left;
     letter-spacing:1px;
-    background-color: rgb(252,252,253);
+    background-color: rgb(252,220,220);
 }
 h1{font-size:80px;letter-spacing:6px;}
 h2{font-size:70px;letter-spacing:4px;}
@@ -313,12 +313,37 @@ textarea {
     border-bottom: solid 0.5px lightgray;
 }
 .header-bar{
+    width:100%;
     height:65px;
-    background-color:rgb(241,241,245);
-    background: -o-linear-gradient(180deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
-    background: -ms-linear-gradient(180deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
-    background: -moz-linear-gradient(180deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
-    background: linear-gradient(180deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
-    background: -webkit-linear-gradient(270deg, rgb(250,250,250), rgb(252), rgb(245,245,245));
+    background-color:#a51e21;
+    color:white;
     border-bottom: solid 0.5px lightgray;
+}
+.num-list-sec{
+    margin-top:30px;
+    width:200px;
+    height:calc(100vh - 120px);
+    background-color: rgb(240,240,240);
+    border:solid 1px rgb(230,230,230);
+    border-radius:10px;
+    padding:10px;
+    margin:20px;
+}
+.display-num-sec{
+    margin-top:10px;
+    width:180px;
+    height:calc(100vh - 170px);
+    background-color: white;
+    border:solid 1px rgb(230,230,230);
+    border-radius:10px;
+    padding:10px;
+    overflow: scroll;
+}
+.number-item-dv{
+    width:96%;
+    background-color: rgb(220,220,220);
+    color:black;
+    border-radius:4px;
+    padding:2%;
+    margin-top: 3px;
 }
