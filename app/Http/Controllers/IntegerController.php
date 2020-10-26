@@ -59,14 +59,13 @@ class IntegerController extends Controller
 
             $number = $request->number;
 
-        return response($number, 200)
-            ->header('Content-Type', 'text/plain');
+            $int = Integer::where('number', $number)->first();
 
-            $integer = Integer::where('number', $number)->get();
+            $used = ($int->used === 0)? 1 : 0;
 
-            $integer->used = !$integer->used;
 
-            $integer->save();
+            Integer::where('number', $number)
+                    ->update(['used' => $used]);
 
             return response('successful request', 200)
                 ->header('Content-Type', 'text/plain');
